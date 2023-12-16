@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>VIT BANK</title>
+  <link rel="stylesheet" href="main.css">
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <div class="center-div">
+    <h1>VIT BANK</h1>
+
+    <div id="login-portal">
+      <h3>Login</h3><br>
+      <label>Account Number:</label><br>
+      <input type="text" id="lAccNo" class="textbox-style margin-buttom-12" required><br>
+      <label>Pin Number:</label><br>
+      <input type="password" id="lAccPin" class="textbox-style margin-buttom-12" required><br>
+      <button id="login-btn" class="margin-buttom-12">Login</button><br>
+      <label id="swithToReg" class="switch">Don't have an account? Register</label>
+    </div>
+
+    <div id="register-portal">
+      <h3>Register</h3><br>
+      <label>Name:</label><br>
+      <input type="text" id="rAccName" class="textbox-style margin-buttom-12" required><br>
+      <label>Account Number:</label><br>
+      <input type="text" id="rAccNo" class="textbox-style  margin-buttom-12" required><br>
+      <label>Pin Number:</label><br>
+      <input type="password" id="rAccPin" class="textbox-style  margin-buttom-12" required><br>
+      <label>Confirm Pin Number:</label><br>
+      <input type="password" id="rConAccPin" class="textbox-style  margin-buttom-12" required><br>
+      <button id="register-btn" class="margin-buttom-12">Register</button><br>
+      <label id="swithToLogin" class="switch">Have an account? Login</label>
+    </div>
+
+    <div id="portal">
+      <label id="userName">....</label><br>
+      <label id="totalBal">....</label><br>
+
+      <div id="depoist-portal">
+        <h4>Deposit</h4><br>
+        <label>Enter Amount:</label><br>
+        <input type=text id="depoist-amt" class="textbox-style margin-buttom-12" required><br>
+        <button id="dep-submit">Deposit</button><br>
+      </div>
+
+      <div id="withdraw-portal">
+        <h4>Withdraw</h4><br>
+        <label>Enter Amount:</label><br>
+        <input type=text id="withdraw-amt" class="textbox-style  margin-buttom-12" required><br>
+        <button id="wit-submit">Withdraw</button><br>
+      </div>
+
+      <div id="transfer-portal">
+        <h4>Transfer</h4><br>
+        <label>Enter Amount:</label><br>
+        <input type=text id="transfer-amt" class="textbox-style  margin-buttom-12" required><br>
+        <label>Enter Transfer Account Number:</label><br>
+        <input type=text id="transfer-acc-no" class="textbox-style  margin-buttom-12" required><br>
+        <button id="trans-submit">Transfer</button><br>
+      </div>
+
+      <div id="options">
+      <h3>Please select an option</h3><br>
+      <button id="depoist-btn">Deposit</button>
+      <button id="withdraw-btn">Withdraw</button>
+      <button id="transfer-btn">Transfer</button>
+      </div>
+    </div>
+
+    </div>
+  </div>
