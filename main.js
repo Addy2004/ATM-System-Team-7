@@ -63,15 +63,15 @@ if(rAccName!==null && rAccNo.match(accNoPat) && rAccPin.match(accPinPat) && rAcc
    }).then(()=>{
      alert("Registered");
    }).catch((error)=>{
-     alert("Registered Failed\n"+error);
+     alert("Registration Failed\n"+error);
    });
 
    set(ref(db,"accNo "+rAccNo+"/received"),{
      receivedAmt: 0
    }).then(()=>{
-     console.log("received amt updated");
+     console.log("Received amount updated");
    }).catch((error)=>{
-     alert("received amt updation Failed\n"+error);
+     alert("Received amount updation Failed\n"+error);
    });
 }else{
   alert("Please enter valid details");
@@ -94,24 +94,24 @@ get(child(dbref,"accNo "+accNo+"/accPin "+accPin+"/accDetails")).then((snapshot)
      avalBal = snapshot.val().avalBal;
      document.getElementById('userName').innerHTML = 'Hi '+name;
   }else{
-    alert("no data found in the database");
+    alert("No data found in the database");
   }
 }).catch((error)=>{
-  alert("error while getting  data\n"+error);
+  alert("Error while getting  data\n"+error);
 });
 
 get(child(dbref,"accNo "+accNo+"/received")).then((snapshot)=>{
   if(snapshot.exists()){
       receivedAmt = snapshot.val().receivedAmt;
       totalBal = avalBal + receivedAmt;
-      msg="welcome, "+name;
+      msg="Welcome, "+ name;
       updateAvalBal(msg,totalBal);
       updateReceivedAmt();
   }else{
-    alert("no received amount found in the database");
+    alert("No received amount found in the database");
   }
 }).catch((error)=>{
-  alert("error while getting  data\n"+error);
+  alert("Error while getting data\n"+error);
 });
 
 
@@ -130,7 +130,7 @@ function updateAvalBal(msg,totalBal){
       update(ref(db,"accNo "+accNo+"/received"),{
         receivedAmt: 0
       }).then(()=>{
-        console.log("received amount updated");
+        console.log("Received amount updated");
       }).catch((error)=>{
         alert("error\n"+error);
       });
@@ -151,10 +151,10 @@ function depoist(){
     if(depoistAmt>=100){
       totalBal += depoistAmt;
       document.getElementById('depoist-amt').value = '';
-      msg = "Rs. "+depoistAmt+" was successfully deposited";
+      msg = "Rs. "+depoistAmt+" were successfully deposited";
       updateAvalBal(msg,totalBal);
     }else{
-      alert('Minium deposit amount Rs.100');
+      alert('Minimum deposit amount Rs.100');
     }
   });
 }
@@ -173,7 +173,7 @@ function withdraw(){
     if(withdrawAmt>=100){
       totalBal -= withdrawAmt;
       document.getElementById('withdraw-amt').value = '';
-      msg = "Rs. "+withdrawAmt+" was successfully withdrawn";
+      msg = "Rs. "+withdrawAmt+" were successfully withdrawn";
       updateAvalBal(msg,totalBal);
     }else{
       alert('Minimum withdraw amount Rs.100');
@@ -206,7 +206,7 @@ function transfer(){
       }).then(()=>{
         totalBal -= transferAmt;
         document.getElementById('withdraw-amt').value = '';
-        msg = "Rs. "+transferAmt+" was successfully transferred to "+transAccNo;
+        msg = "Rs. "+transferAmt+" were successfully transferred to "+transAccNo;
         updateAvalBal(msg,totalBal);
       }).catch((error)=>{
         alert('error\n'+error);
