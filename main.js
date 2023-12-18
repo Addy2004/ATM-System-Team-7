@@ -170,13 +170,13 @@ function withdraw(){
   document.getElementById('wit-submit').addEventListener('click',function(){
     document.getElementById('withdraw-btn').removeEventListener('click',depoist);
     var withdrawAmt = Number(document.getElementById('withdraw-amt').value);
-    if(withdrawAmt>=100){
+    if(withdrawAmt>=100 && withdrawAmt<=totalBal){
       totalBal -= withdrawAmt;
       document.getElementById('withdraw-amt').value = '';
       msg = "Rs. "+withdrawAmt+" were successfully withdrawn";
       updateAvalBal(msg,totalBal);
     }else{
-      alert('Minimum withdraw amount Rs.100');
+      alert('Minimum withdraw amount should be Rs.100 and Maximum withdraw amount should not exceed Total Balance');
     }
   });
 }
@@ -199,7 +199,7 @@ function transfer(){
     document.getElementById('transfer-acc-no').value = '';
     document.getElementById('transfer-amt').value = '';
 
-    if(transAccNo.match(accNoPat) && transferAmt>=100){
+    if(transAccNo.match(accNoPat) && transferAmt>=100 && transferAmt<=totalBal){
 
       update(ref(db,"accNo "+transAccNo+"/received"),{
         receivedAmt: transferAmt
@@ -212,7 +212,7 @@ function transfer(){
         alert('error\n'+error);
       });
     }else{
-      alert('Minimum withdraw amount Rs.100');
+      alert('Minimum withdraw amount should be Rs.100 and Maximum withdraw amount should not exceed Total Balance');
     }
   });
   }
